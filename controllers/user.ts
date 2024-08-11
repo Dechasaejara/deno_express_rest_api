@@ -52,11 +52,11 @@ const updateUser = async (req: Request, res: Response) => {
 }
 const deleteUser = async (req: Request, res: Response) => {
     try {
-        const user = await User.findById(req.params.id)
+        const user = await User.findById(req.params.id);
         if (user == null) {
             return res.status(404).json({ message: "Cannot find user" })
         }
-        await user.remove()
+        // await user.remove()
         res.json({ message: "Deleted User" })
     } catch (error) {
         res.status(500).json({ message: error.message })
